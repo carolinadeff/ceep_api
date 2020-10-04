@@ -1,11 +1,11 @@
 const { pool } = require('./conexao');
 
 function lista(res){
-    pool.query(`SELECT * FROM categorias`, (erros, resultados) => {
+    pool.query('SELECT * FROM categorias', (erros, resultados) => {
         if (erros) {
           res.json({status: erros, mensagem: 'Falha na solicitação.'});
         }
-        res.status(200).json(resultados.rows);
+        res.json(resultados.rows)
       });
 }
 
