@@ -5,7 +5,7 @@ function lista(res){
         if (erros) {
           res.json({status: erros, mensagem: 'Falha na solicitação.'});
         }
-        res.json(resultados.rows)
+        res.status(200).json(resultados.rows)
       });
 }
 
