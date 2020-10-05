@@ -8,6 +8,12 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors())
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Methods", "GET", "PUT", "POST", "DELETE");
+    next();
+});
+
 consign()
     .include('controllers')
     .into(app)
