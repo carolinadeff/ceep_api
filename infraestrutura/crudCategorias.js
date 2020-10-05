@@ -10,11 +10,11 @@ function lista(res){
 }
 
 function adiciona(categoria, res){
-    pool.query('INSERT INTO categorias (categoria) VALUES ($1)', [categoria], (erros) => {
+    pool.query('INSERT INTO categorias (categoria) VALUES ($1)', [categoria], (erros, resultados) => {
         if (erros) {
           res.json({status: erros, mensagem: 'Falha na solicitação.'});
         }
-        res.status(200).json({status: 'sucesso!', mensagem: `Categoria ${categoria} adicionada com sucesso`});
+        res.status(200).json({status: 'sucesso!', mensagem: `Categoria ${categoria} adicionada com sucesso`}, id: resultados.insertId);
       })
 }
 
