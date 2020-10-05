@@ -14,7 +14,7 @@ function adiciona(categoria, res){
         if (erros) {
           res.json({status: erros, mensagem: 'Falha na solicitação.'});
         }
-        res.status(200).json({status: 'sucesso!', mensagem: `Categoria ${categoria} adicionada com sucesso`}, id: resultados.insertId);
+        res.status(200).json({status: 'sucesso!', mensagem: `Categoria ${categoria} adicionada com sucesso`, id: resultados.insertId});
       })
 }
 
