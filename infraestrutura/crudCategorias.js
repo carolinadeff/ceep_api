@@ -31,6 +31,5 @@ function deleta(id, res){
 module.exports = {
   lista,
   adiciona,
-  atualiza,
   deleta
 }
