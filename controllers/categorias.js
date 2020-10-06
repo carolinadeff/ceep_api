@@ -12,15 +12,7 @@ module.exports = (app) => {
       crudCategorias.adiciona(categoria, res);
     });
 
-  app
-    .route("/categorias/:id")
-    .put((req, res) => {
-      const id = req.params.id;
-      const { categoria } = req.body;
-      crudCategorias.atualiza(categoria, id, res);
-    })
-
-    .delete((req, res) => {
+  app.delete("/categorias/:id", (req, res) => {
       const id = req.params.id;
       crudCategorias.deleta(id, res);
     });
